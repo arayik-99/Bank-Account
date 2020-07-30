@@ -84,6 +84,4 @@ class CoffeeMachine:
 
 
 
-person_1 = Customer("Ara", "Hovhannisyan", 4124, 10,200)
-acc= Account(person_1,person_1.balance,person_1.cash)
-acc.bank_password(person_1.cust_password)
+
