@@ -62,14 +62,19 @@ class Account:
         elif self.choice == '2':
             self.deposit()
         else:
-            exit()
-        
-        
-            
+            exit()       
+                    
 
     def withdraw(self):
-        pass
-            
+        print(f"Your current balance : {self.acc_balance}")
+        self.wtd_amm = int(input("Please write the ammount of money you want to withdraw: "))
+        if self.wtd_amm > self.acc_balance:
+            print("Withdrawal refused. Funds unavailable.")
+            exit()
+        elif self.wtd_amm <=self.acc_balance:
+            self.acc_balance-=self.wtd_amm
+            self.acc_cash+=self.wtd_amm
+            print(f"Your current balance: {self.acc_balance} ")
 
     def deposit(self):
         pass
@@ -84,4 +89,6 @@ class CoffeeMachine:
 
 
 
-
+person_1 = Customer("Ara", "Hovhannisyan", 4124, 10,200)
+acc= Account(person_1,person_1.balance,person_1.cash)
+acc.bank_main()
