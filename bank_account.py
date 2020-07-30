@@ -74,12 +74,13 @@ class Account:
         elif self.wtd_amm <=self.acc_balance:
             self.acc_balance-=self.wtd_amm
             self.acc_cash+=self.wtd_amm
-            print(f"Your current balance: {self.acc_balance} ")
+            print(f"Your current balance: {self.acc_balance}")
 
     def deposit(self):
         pass
 
-    
+    def current_cash(self,curr_cash):
+        return curr_cash
 
     
 
@@ -89,6 +90,3 @@ class CoffeeMachine:
 
 
 
-person_1 = Customer("Ara", "Hovhannisyan", 4124, 10,200)
-acc= Account(person_1,person_1.balance,person_1.cash)
-acc.bank_main()
