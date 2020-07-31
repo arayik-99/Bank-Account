@@ -1,12 +1,42 @@
 class Customer:
+
+    """
+    A class used to represent the customer.
+    """
     
     def __init__(self,first_name,last_name,cust_password,cash,balance=0):
+        """
+        Parameters
+        ----------
+        first_name: str
+
+            The name of the customer
+
+        last_name: str
+
+            The surname of the customer
+
+        cust_password: int
+
+            Customer's bank PIN 
+
+        cash: int
+
+            Cash money, which the customer currently has
+
+        balance: int (def. is set to 0)
+        
+            The customer's account balance
+
+
+
+        """
         self.first_name = first_name
         self.last_name = last_name       
         self.cash = cash      
         self.balance = balance
         self.cust_password = cust_password
-
+       
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -15,10 +45,15 @@ class Customer:
 
 class Account:
 
+    
+
     def __init__(self,acc_name,acc_balance,acc_cash):
         self.acc_name = acc_name
         self.acc_balance = acc_balance
-        self.acc_cash = acc_cash
+        self.acc_cash = acc_cash        
+
+        
+
 
     def bank_password(self,m_password):
         self.main_password = m_password
@@ -69,7 +104,7 @@ class Account:
         print(f"Your current balance : {self.acc_balance}")
         self.wtd_amm = int(input("Please write the ammount of money you want to withdraw: "))
         if self.wtd_amm > self.acc_balance:
-            print("Withdrawal refused. Funds unavailable.")
+            print("Withdrawal refused. Funds not available.")
             exit()
         elif self.wtd_amm <=self.acc_balance:
             self.acc_balance-=self.wtd_amm
@@ -77,19 +112,35 @@ class Account:
             print(f"Your current balance: {self.acc_balance}")
 
     def deposit(self):
-        pass
+        self.dep_amt = int(input("Write the amount of money you want to deposit: "))
+        if self.dep_amt>self.acc_cash:
+            print("Deposit refused. Funds not available.")
+        elif self.dep_amt <= self.acc_cash:
+            self.acc_cash-=self.dep_amt
+            self.acc_balance+=self.dep_amt
 
-    def current_cash(self,curr_cash):
-        return curr_cash
+    def current_cash(self):
+        
+        return self.acc_cash
 
+    def current_balance(self):
+
+        return self.acc_balance
     
 
 
-class CoffeeMachine:
-    pass
 
 
-
-person_1 = Customer("Ara", "Hovhannisyan", 4124, 10,200)
+                    #name    surname   PIN    cash    balance
+person_1 = Customer("Name", "Surname", 5516,   10,     200)
 acc= Account(person_1,person_1.balance,person_1.cash)
 acc.bank_main()
+person_1.balance = acc.current_balance()
+person_1.cash = acc.current_cash()
+print(f"Current balance : {person_1.balance}")
+print(f"Current cash : {person_1.cash}")
+
+
+
+
+
