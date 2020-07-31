@@ -105,6 +105,7 @@ class Account:
         self.wtd_amm = int(input("Please write the ammount of money you want to withdraw: "))
         if self.wtd_amm > self.acc_balance:
             print("Withdrawal refused. Funds not available.")
+            print("Please take your card.")
             exit()
         elif self.wtd_amm <=self.acc_balance:
             self.acc_balance-=self.wtd_amm
@@ -115,6 +116,7 @@ class Account:
         self.dep_amt = int(input("Write the amount of money you want to deposit: "))
         if self.dep_amt>self.acc_cash:
             print("Deposit refused. Funds not available.")
+            print("Please take your card.")
         elif self.dep_amt <= self.acc_cash:
             self.acc_cash-=self.dep_amt
             self.acc_balance+=self.dep_amt
@@ -132,15 +134,10 @@ class Account:
 
 
                     #name    surname   PIN    cash    balance
-person_1 = Customer("Name", "Surname", 5516,   10,     200)
+person_1 = Customer("Name", "Surname", 5516,   110,     200)
 acc= Account(person_1,person_1.balance,person_1.cash)
-acc.bank_main()
+acc.bank_password(person_1.cust_password)
 person_1.balance = acc.current_balance()
 person_1.cash = acc.current_cash()
 print(f"Current balance : {person_1.balance}")
 print(f"Current cash : {person_1.cash}")
-
-
-
-
-
